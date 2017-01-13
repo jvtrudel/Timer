@@ -48,6 +48,12 @@ Timer::Timer(){
 	init_timer();
 	whole_program.begin_time = get_current_time();
 	whole_program.count = 1;
+    _title="Anonymous Benchmark";
+}
+
+void Timer::title(const string &benchmark_title)
+{
+    Timer::instance()._title=benchmark_title;
 }
 
 void Timer::begin( const std::string& func_name ) {
@@ -88,6 +94,8 @@ std::string Timer::summery( void ) {
 	static const string percentage   = "Percentage";
 	const int percentage_size   = max((int)percentage.length(),   12);
 
+    ss <<endl;
+    ss << "# Benchmark: "<< Timer::instance()._title<<endl;
 	ss << "+--------------------" << endl;
 	ss << "| Profiling Summery ..." << endl;
 	ss << "+---------------------------------------" << endl;

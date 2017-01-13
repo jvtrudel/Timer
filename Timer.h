@@ -6,6 +6,7 @@
 
 class Timer {
 public:
+    static void title(const std::string& benchmark_title = "Anonymous Benchmark");
 	static void begin( const std::string& function_name = "Anonymous Function" );
 
 	static void end( const std::string& function_name   = "Anonymous Function" ); 
@@ -27,6 +28,7 @@ private:
 	// running time data for the whole program 
 	Data whole_program; 
 	std::unordered_map<std::string, Data> datas; 
+    std::string _title;
 }; 
 
 Timer& Timer::instance(){
